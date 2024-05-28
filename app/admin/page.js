@@ -137,7 +137,7 @@ const Admin = () => {
                 <span className="text-base sm:text-lg font-semibold">
                   {p.exam}
                 </span>
-                {window.innerWidth >= 640 ? (
+                {typeof window !== "undefined" && window.innerWidth >= 640 ? (
                   <>
                     <button
                       onClick={() => {

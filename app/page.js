@@ -286,7 +286,7 @@ export default function Home() {
           <div className="cardsVk092">
             <CardComponent cardList={cardList_semester} />
           </div> */}
-          {window.innerWidth >= 640 && (
+          {typeof window !== "undefined" && window.innerWidth >= 640 && (
             <div className="m-8 flex flex-wrap flex-row gap-12">
               {isLoading ? (
                 <h1>Loading...</h1>
@@ -412,7 +412,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      {window.innerWidth < 640 && (
+      {typeof window !== "undefined" && window.innerWidth < 640 && (
         <div
           className="m-8 flex flex-wrap flex-row gap-12"
           style={{ marginTop: isHidden ? "26rem" : "0.5rem" }}
