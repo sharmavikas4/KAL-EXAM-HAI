@@ -20,12 +20,16 @@ export default function Home() {
   const [branch, setBranch] = useState("");
   const [path, setPath] = useState("");
   const [semester, setSemester] = useState(false);
+  const [width, setWidth] = useState(0);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         dispatch(login());
       }
     });
+  }, []);
+  useEffect(() => {
+    setWidth(window.innerWidth);
   }, []);
   const p = path.split("/");
   // useEffect(() => {
@@ -217,8 +221,7 @@ export default function Home() {
         <div
           className="sm:w-[100%] w-full"
           style={{
-            width:
-              window.innerWidth < 640 ? (!isHidden ? "100%" : "35%") : "100%",
+            width: width < 640 ? (!isHidden ? "100%" : "35%") : "100%",
           }}
         >
           <div className="flex flex-row">
@@ -286,7 +289,7 @@ export default function Home() {
           <div className="cardsVk092">
             <CardComponent cardList={cardList_semester} />
           </div> */}
-          {typeof window !== "undefined" && window.innerWidth >= 640 && (
+          {width >= 640 && (
             <div className="m-8 flex flex-wrap flex-row gap-12">
               {isLoading ? (
                 <h1>Loading...</h1>
@@ -412,7 +415,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      {typeof window !== "undefined" && window.innerWidth < 640 && (
+      {width < 640 && (
         <div
           className="m-8 flex flex-wrap flex-row gap-12"
           style={{ marginTop: isHidden ? "26rem" : "0.5rem" }}

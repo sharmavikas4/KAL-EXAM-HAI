@@ -19,6 +19,7 @@ const Admin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const { isLogin } = useSelector((state) => state.login);
+  const [width, setWidth] = useState();
   useEffect(() => {
     setIsLoading(true);
     const data = [];
@@ -35,6 +36,9 @@ const Admin = () => {
       setIsLoading(false);
     };
     fetchData();
+  }, []);
+  useEffect(() => {
+    setWidth(window.innerWidth);
   }, []);
   useEffect(() => {
     if (auth?.currentUser?.email !== "kalexamhai1@gmail.com") {
@@ -137,7 +141,7 @@ const Admin = () => {
                 <span className="text-base sm:text-lg font-semibold">
                   {p.exam}
                 </span>
-                {typeof window !== "undefined" && window.innerWidth >= 640 ? (
+                {width >= 640 ? (
                   <>
                     <button
                       onClick={() => {
