@@ -6,7 +6,7 @@ const Paper = ({ obj }) => {
   const router = useRouter();
   console.log(obj);
   return (
-    <div className="max-w-xs rounded-xl overflow-hidden shadow-xl md:basis-3/4 basis-3/3">
+    <div className="max-w-xs rounded-xl overflow-hidden shadow-xl md:basis-4/4 basis-3/3">
       <img className="w-full" src={"images/cards/Paper.png"} alt="Card Image" />
       <div className="px-6 py-4">
         <div className=" font-semibold text-md mb-2">

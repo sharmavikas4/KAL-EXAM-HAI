@@ -105,12 +105,9 @@ const Admin = () => {
       <Navbar />
       {isLoading ? (
         // Loader component , adjust it according to the page , refer to npm react-spinners for documentation
-        <HashLoader
-          color={"#5BD1D7"}
-          loading={"Loading"}
-          className=" justify-center"
-          size={50}
-        />
+        <div className="flex items-center justify-center h-[80vh]">
+          <HashLoader color={"#5BD1D7"} loading={"Loading"} size={50} />
+        </div>
       ) : (
         <div className="flex flex-row items-center place-content-center m-4 sm:w-[98%]  w-[94%] flex-wrap gap-4 p-4 ">
           {requestPaper.length === 0 && (
@@ -126,7 +123,7 @@ const Admin = () => {
                 key={i}
                 className="flex md:basis-5/6 flex-row flex-wrap gap-4 p-4 items-center place-content-center md:gap-10 md:p-6 border-[#eee] border-[1px] shadow-xl shadow-[0px 4px 8px #b4b4b4]"
               >
-                <span className="text-base sm:text-lg font-semibold">
+                <span className="text-base sm:text-lg font-semibold w-[20%] text-center">
                   {p.department}
                 </span>
                 <span className="text-base sm:text-lg font-semibold">
@@ -135,7 +132,7 @@ const Admin = () => {
                 <span className="text-base sm:text-lg font-semibold">
                   {p.semester}
                 </span>
-                <span className="text-base sm:text-lg font-semibold">
+                <span className="text-base sm:text-lg font-semibold w-[15%] text-center">
                   {p.subject}
                 </span>
                 <span className="text-base sm:text-lg font-semibold">

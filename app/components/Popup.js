@@ -1,7 +1,17 @@
+import { useEffect, useState } from "react";
+
 const Popup = ({ heading, image, p, hidden, setHidden, clear }) => {
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
   return (
     <div
-      style={{ display: hidden ? "none" : "flex" }}
+      style={{
+        display: hidden ? "none" : "flex",
+        width: width < 640 ? "200%" : "100%",
+        left: width < 640 && "-50%",
+      }}
       className="fixed top-0 bottom-0 left-0 right-0 justify-center items-center bg-gray-500 bg-opacity-50"
     >
       <div className="bg-white flex flex-col rounded-lg w-[40%] p-5 place-content-center">

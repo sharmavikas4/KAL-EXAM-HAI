@@ -5,13 +5,16 @@ import { collection, getDocs, addDoc } from "firebase/firestore";
 import { db, storage } from "../firebase/firebase-config";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import Popup from "../components/Popup";
+import { useRouter } from "next/navigation";
 function Upload() {
+  const { isLogin } = useSelector((state) => state.login);
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   const [faculty, setFaculty] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [year, setYear] = useState([]);
   const [y, setY] = useState(0);
+  const router = useRouter();
   useEffect(() => {
     setIsLoading(true);
     const currentYear = new Date().getFullYear();
@@ -128,6 +131,11 @@ function Upload() {
         setHeading(message[1].heading);
       });
   };
+  useEffect(() => {
+    if (!isLogin) {
+      router.push("/signup");
+    }
+  }, [isLogin]);
   return isLoading ? (
     <h1>Loading</h1>
   ) : (

@@ -11,6 +11,7 @@ import Card from "./components/Cards";
 import dataUpload from "./data";
 import Paper from "./components/Paper";
 import { useRouter } from "next/navigation";
+import Footer from "./components/footer";
 export default function Home() {
   const { isLogin } = useSelector((state) => state.login);
   const [isHidden, setIsHidden] = useState(false);
@@ -50,11 +51,11 @@ export default function Home() {
   }, [data]);
   const [search, setSearch] = useState("");
   const router = useRouter();
-  useEffect(() => {
-    if (!isLogin) {
-      router.push("/signup");
-    }
-  }, [isLogin]);
+  // useEffect(() => {
+  //   if (!isLogin) {
+  //     router.push("/signup");
+  //   }
+  // }, [isLogin]);
   return (
     <div>
       <Navbar />
@@ -536,6 +537,7 @@ export default function Home() {
           )}
         </div>
       )}
+      <Footer />
     </div>
   );
 }
