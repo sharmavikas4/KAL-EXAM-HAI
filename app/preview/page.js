@@ -10,9 +10,11 @@ import { useSelector } from "react-redux";
 export default function Preview({ searchParams }) {
   const router = useRouter();
   const { isLogin } = useSelector((state) => state.login);
-  if (!isLogin) {
-    router.push("/signup");
-  }
+  useEffect(() => {
+    if (!isLogin) {
+      router.push("/signup");
+    }
+  }, [isLogin]);
   return (
     <div>
       <embed
