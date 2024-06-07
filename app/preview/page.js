@@ -13,7 +13,7 @@ export default function Preview({ searchParams }) {
   const { isLogin } = useSelector((state) => state.login);
   useEffect(() => {
     if (!isLogin) {
-      router.push("/signup");
+      return router.push("/signup");
     }
   }, [isLogin]);
   return (
